@@ -1,18 +1,18 @@
-# 🚀 Loan Approval Prediction System (AI/ML Project)
+# Loan Approval Prediction System (AI/ML Project)
 
-## 📌 Overview
+##  Overview
 This project predicts whether a loan will be approved or rejected using Machine Learning.
 
 It includes:
-- 🤖 ML Model (Random Forest)
-- ⚡ FastAPI Backend
-- 🎨 Interactive Frontend UI
-- 📊 Admin Dashboard with Charts
-- 🗄️ MySQL Database Integration
+-  ML Model (Random Forest)
+-  FastAPI Backend
+-  Interactive Frontend UI
+-  Admin Dashboard with Charts
+-  MySQL Database Integration
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
 - Python (Pandas, Scikit-learn)
 - FastAPI
@@ -22,24 +22,24 @@ It includes:
 
 ---
 
-## ⚙️ Features
+##  Features
 
-✅ Loan Approval Prediction  
-✅ Real-time API  
-✅ Interactive Frontend UI  
-✅ Admin Dashboard with Charts  
-✅ Database Logging  
-✅ Scalable Architecture  
+ Loan Approval Prediction  
+ Real-time API  
+ Interactive Frontend UI  
+ Admin Dashboard with Charts  
+ Database Logging  
+ Scalable Architecture  
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 loan-approval-ai/ │ ├── api/              # FastAPI backend ├── frontend/         # UI (HTML, JS) ├── ml-model/         # Model training ├── README.md
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ### 1. Start Backend
 bash cd api uvicorn main:app --reload 
@@ -63,11 +63,11 @@ Input:
 Income: 50000 Credit Score: 700 Loan Amount: 200000
 
 Output:
-Approved ✅
+Approved 
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 - Deploy on AWS / Render
 - Add Authentication (Admin Login)
@@ -76,10 +76,10 @@ Approved ✅
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 Vishal Raj
 
 ---
 
-## ⭐ If you like this project, give it a s
+##  If you like this project, give it a s
