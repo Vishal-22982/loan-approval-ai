@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 600px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .box {
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            width: 120px;
+        }
+
+        .approved { background: green; }
+        .rejected { background: red; }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>📊 Loan Prediction Dashboard</h2>
+
+<div class="card">
+
+    <div class="stats">
+        <div class="box approved">
+            Approved: <span id="approvedCount">0</span>
+        </div>
+
+        <div class="box rejected">
+            Rejected: <span id="rejectedCount">0</span>
+        </div>
+    </div>
+
+    <canvas id="chart"></canvas>
+
+</div>
+
+<script>
+    // Create chart
+    const ctx = document.getElementById('chart');
+
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Approved', 'Rejected'],
+            datasets: [{
+                label: 'Predictions',
+                data: [0, 0],
+                borderWidth: 1
+            }]
+        }
+    });
+
+    // Fetch data from backend
+    async function loadStats() {
+        try {
+            const response = await fetch("http://127.0.0.1:8000/stats");
+            const data = await response.json();
+
+            // Update numbers
+            document.getElementById("approvedCount").innerText = data.approved;
+            document.getElementById("rejectedCount").innerText = data.rejected;
+
+            // Update chart
+            chart.data.datasets[0].data = [data.approved, data.rejected];
+            chart.update();
+
+        } catch (error) {
+            console.log("Error fetching stats:", error);
+        }
+    }
+
+    // Load every 2 seconds (LIVE dashboard 🔥)
+    setInterval(loadStats, 2000);
+
+    // Initial load
+    loadStats();
+</script>
+
+</body>
+</html>
